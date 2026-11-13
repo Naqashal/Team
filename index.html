@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="red">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080507">
+<meta name="description" content="NAQASH TECH official team portfolio — web development, cybersecurity, digital tools and creative technology.">
+<title>NAQASH TECH — Official Team Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg: #080507; --panel: #160b10; --green: #ff304b; --lime: #ff7180; 
+  --gold: #ffb5bd; --muted: #c2aeb2; --line: rgba(255,48,75,.28); --white: #fff5f6;
+}
+[data-theme="matrix"] {
+  --bg: #050807; --panel: #0b1210; --green: #39ff75; --lime: #b5ff3d; 
+  --gold: #e5c46a; --muted: #9baaa1; --line: rgba(57,255,117,.22); --white: #f4fff7;
+}
+[data-theme="gold"] {
+  --bg: #0a0805; --panel: #16120b; --green: #f3ce52; --lime: #ffe58f; 
+  --gold: #ffdf7e; --muted: #aaa28b; --line: rgba(243,206,82,.25); --white: #fffcf4;
+}
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:'Rajdhani',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;z-index:-1}
+
+.wrap{width:min(1120px,92%);margin:auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:1.5px}
+.brandmark{width:48px;height:48px;border:2px solid var(--green);border-radius:50%;padding:3px;overflow:hidden;box-shadow:0 0 18px var(--line),0 0 0 3px var(--line);flex:0 0 auto}
+.brandmark img{width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:50%;display:block}
+.brand small{display:block;color:var(--green);font-size:10px;letter-spacing:2px;margin-top:3px}
+
+.nav{display:flex;gap:20px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:700}
+.nav a:hover{color:var(--green)}
+
+.theme-switch{display:flex;gap:6px;background:var(--panel);border:1px solid var(--line);padding:4px;border-radius:30px}
+.theme-btn{background:transparent;border:0;color:var(--white);font-size:11px;font-weight:800;padding:5px 9px;border-radius:20px;cursor:pointer}
+.theme-btn.active{background:var(--green);color:#080507}
+
+.hud-bar{background:var(--panel);border-bottom:1px solid var(--line);border-top:1px solid var(--line);font-family:monospace;font-size:11px;color:var(--muted);padding:8px 0;letter-spacing:1px}
+.hud-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.hud-inner b{color:var(--green)}
+
+.hero{text-align:center;padding:60px 0 40px;position:relative}
+.eyebrow{color:var(--green);font-size:11px;letter-spacing:4px;font-weight:800;font-family:'Orbitron',sans-serif}
+.hero h1{font-size:clamp(40px,8vw,80px);line-height:.98;letter-spacing:-2px;margin:14px 0 10px;font-weight:950;font-family:'Orbitron',sans-serif}
+.hero h1 span{color:var(--green)}
+.hero p{max-width:620px;margin:0 auto;color:var(--muted);line-height:1.7;font-size:15px}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:5px;text-decoration:none;font-weight:800;font-size:12px;letter-spacing:.7px;border:1px solid var(--green);color:#080507;background:var(--green);box-shadow:0 0 22px var(--line);transition:.2s;font-family:'Orbitron',sans-serif}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.15)}
+.btn.outline{background:transparent;color:var(--green);box-shadow:none}
+
+.section{padding:50px 0}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head h2{font-size:clamp(26px,4vw,38px);margin:10px 0;font-family:'Orbitron',sans-serif}
+.section-head p{color:var(--muted);font-size:14px}
+
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(160deg,var(--panel),var(--bg) 65%);border:1px solid var(--line);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:.3s;cursor:pointer}
+.card:hover{transform:translateY(-7px);border-color:var(--green);box-shadow:0 15px 45px #0008,0 0 25px var(--line)}
+.profile{width:120px;height:120px;border-radius:50%;margin:4px auto 16px;border:2px solid var(--green);padding:4px;box-shadow:0 0 0 5px var(--line),0 0 32px var(--line);overflow:hidden;position:relative;background:var(--panel)}
+.profile img{width:100%;height:100%;object-fit:cover;object-position:center 30%;border-radius:50%;display:block}
+.role{text-align:center;color:var(--green);font-size:10px;font-weight:900;letter-spacing:2px;font-family:'Orbitron',sans-serif}
+.card h3{text-align:center;margin:8px 0 4px;font-size:20px;font-family:'Orbitron',sans-serif}
+.card .sub{text-align:center;color:var(--gold);font-size:11px;min-height:18px}
+.desc{text-align:center;color:var(--muted);font-size:13px;line-height:1.6;min-height:42px;margin:12px 0}
+.skills{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0 18px}
+.skills span{font-size:10px;color:var(--white);border:1px solid var(--line);background:var(--panel);padding:5px 9px;border-radius:30px}
+.contact{display:flex;justify-content:center;align-items:center;gap:8px;color:var(--white);font-weight:800;font-size:13px;text-decoration:none;border-top:1px solid var(--line);padding-top:14px}
+.contact b{color:var(--green);font-size:16px}
+.retired{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:2px 7px;border-radius:30px;font-size:9px;letter-spacing:1px;margin-left:5px}
+
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.store-card{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:20px;text-align:center}
+.store-card h3{font-size:16px;margin:10px 0 6px;font-family:'Orbitron',sans-serif}
+.store-card p{font-size:12px;color:var(--muted);margin-bottom:14px}
+.store-price{color:var(--gold);font-weight:900;font-size:15px;margin-bottom:12px}
+
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.social-card{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:18px;text-align:center;text-decoration:none;color:var(--white);transition:.2s}
+.social-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.social-card h4{margin:8px 0 4px;font-family:'Orbitron',sans-serif;font-size:14px}
+.social-card span{font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="wrap topbar">
+  <div class="brand">
+    <div class="brandmark"><img src="https://i.ibb.co/YnZqXjB/file-00000000bbf08211bb337eff0f74d187.png" alt="Naqash Tech"></div>
+    <div>NAQASH.X.CYBER<small>HACK • DEVELOP • INNOVATE</small></div>
+  </div>
+  <nav class="nav">
+    <a href="#team">TEAM</a>
+    <a href="#store">VIP STORE</a>
+    <a href="#launchpad">TOOLS</a>
+    <a href="#community">COMMUNITY</a>
+    <div class="theme-switch">
+      <button class="theme-btn active" onclick="setTheme('red')">RED</button>
+      <button class="theme-btn" onclick="setTheme('matrix')">MATRIX</button>
+      <button class="theme-btn" onclick="setTheme('gold')">GOLD</button>
+    </div>
+  </nav>
+</header>
+
+<div class="hud-bar">
+  <div class="wrap hud-inner">
+    <span>SECURE HUD // STATUS: <b id="hudStatus">ONLINE (ENCRYPTED)</b></span>
+    <span>PING: <b id="hudPing">14ms</b></span>
+    <span>TIME: <b id="hudTime">--:--:--</b></span>
+  </div>
+</div>
+
+<main>
+<section class="hero wrap">
+  <div class="eyebrow">WELCOME TO OUR DIGITAL WORLD</div>
+  <h1>NAQASH <span>TECH</span></h1>
+  <p>Official team portfolio — a creative technology team focused on web development, digital tools, cybersecurity learning and bold ideas.</p>
+  <div class="hero-actions">
+    <a class="btn" href="#team">MEET THE TEAM <span>↗</span></a>
+    <a class="btn outline" href="https://wa.me/923141967385" target="_blank" rel="noopener">CONTACT OWNER</a>
+  </div>
+</section>
+
+<!-- Terminal Section -->
+<div class="wrap" style="margin-bottom:40px">
+  <div id="ntTerminal" style="border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px;box-shadow:0 10px 30px #0008">
+    <div style="display:flex;align-items:center;gap:7px;color:var(--green);font:700 11px Orbitron,sans-serif;margin-bottom:12px">
+      <i style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block"></i> 
+      COMMAND CONSOLE (Type 'help' or click buttons)
+    </div>
+    <div id="ntTyped" style="font-family:monospace;font-size:13px;color:var(--white);min-height:45px;white-space:pre-wrap"></div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button class="btn outline" style="padding:6px 12px;font-size:10px" onclick="runCmd('help')">help</button>
+      <button class="btn outline" style="padding:6px 12px;font-size:10px" onclick="runCmd('team')">team</button>
+      <button class="btn outline" style="padding:6px 12px;font-size:10px" onclick="runCmd('store')">store</button>
+      <button class="btn outline" style="padding:6px 12px;font-size:10px" onclick="runCmd('clear')">clear</button>
+    </div>
+  </div>
+</div>
+
+<section class="section wrap" id="team">
+  <div class="section-head">
+    <div class="eyebrow">THE PEOPLE BEHIND THE BRAND</div>
+    <h2>Our <span style="color:var(--green)">Official Team</span></h2>
+    <p>Leadership, creativity and technology — together as one team. Tap cards to open profiles.</p>
+  </div>
+  <div class="team">
+    <article class="card" onclick="openProfile(0)">
+      <div class="profile"><img src="https://i.ibb.co/YnZqXjB/file-00000000bbf08211bb337eff0f74d187.png" alt="Naqash Tech"></div>
+      <div class="role">OWNER</div>
+      <h3>NAQASH TECH</h3>
+      <div class="sub">Founder • Web Developer</div>
+      <p class="desc">Building digital experiences, useful web projects and creative technology solutions.</p>
+      <div class="skills"><span>Web Dev</span><span>Hacking</span><span>Design</span><span>Tools</span></div>
+      <a class="contact" href="https://wa.me/923141967385" target="_blank" rel="noopener"><b>◉</b> +92 314 1967385</a>
+    </article>
+    <article class="card" onclick="openProfile(1)">
+      <div class="profile"><img src="https://i.ibb.co/LhX1FT0T/1794555622093.jpg" alt="Syed Jarar Shah"></div>
+      <div class="role">CHIEF EXECUTIVE OFFICER</div>
+      <h3>SYED JARAR SHAH</h3>
+      <div class="sub">CEO • Team Leadership</div>
+      <p class="desc">Guiding the team, coordinating projects and keeping our work focused on quality.</p>
+      <div class="skills"><span>Leadership</span><span>Management</span><span>Strategy</span></div>
+      <a class="contact" href="https://wa.me/923470710824" target="_blank" rel="noopener"><b>◉</b> +92 347 0710824</a>
+    </article>
+    <article class="card" onclick="openProfile(2)">
+      <div class="profile"><img src="https://i.ibb.co/xSyDdSBr/1794555646367.jpg" alt="Pookie Hacker"></div>
+      <div class="role">WORK MANAGER <span class="retired">RETIRED</span></div>
+      <h3>POOKIE HACKER</h3>
+      <div class="sub">Former Work Manager</div>
+      <p class="desc">Recognized for creative support, tool discovery and technical research contributions.</p>
+      <div class="skills"><span>Bug Hunting</span><span>Banners</span><span>Tool Finder</span></div>
+      <a class="contact" href="https://wa.me/923439900472" target="_blank" rel="noopener"><b>◉</b> +92 343 9900472</a>
+    </article>
+  </div>
+</section>
+
+<!-- Syed Jarar Shah VIP Store -->
+<section class="section wrap" id="store">
+  <div class="section-head">
+    <div class="eyebrow">DIGITAL ASSETS & SERVICES</div>
+    <h2>Syed Jarar Shah <span style="color:var(--green)">VIP Store</span></h2>
+    <p>Exclusive gaming IDs, custom web assets and priority services.</p>
+  </div>
+  <div class="store-grid">
+    <div class="store-card">
+      <h3>👑 Ludo King VIP ID</h3>
+      <p>High-level verified Ludo Star & King IDs with rare frames and tokens.</p>
+      <div class="store-price">Contact for Price</div>
+      <a class="btn" href="https://wa.me/923470710824?text=Hello%20Jarar%20Shah,%20I%20want%20to%20buy%20Ludo%20VIP%20ID." target="_blank" rel="noopener">BUY VIA WHATSAPP ↗</a>
+    </div>
+    <div class="store-card">
+      <h3>⚡ Custom 3D Logo Design</h3>
+      <p>Personalized VIP Cyber and Royal Gold logos with your custom name.</p>
+      <div class="store-price">PKR 500 / $2</div>
+      <a class="btn" href="https://wa.me/923470710824?text=Hello%20Jarar%20Shah,%20I%20want%20a%20Custom%203D%20Logo." target="_blank" rel="noopener">ORDER ON WHATSAPP ↗</a>
+    </div>
+    <div class="store-card">
+      <h3>🛡️ Website Consultation</h3>
+      <p>Direct 1-on-1 discussion with Syed Jarar Shah for project planning.</p>
+      <div class="store-price">Free / Priority</div>
+      <a class="btn" href="https://wa.me/923470710824?text=Hello%20Jarar%20Shah,%20I%20need%20website%20consultation." target="_blank" rel="noopener">DISCUSS NOW ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- Launchpad Tools Hub -->
+<section class="section wrap" id="launchpad">
+  <div class="section-head">
+    <div class="eyebrow">UTILITIES & HUB</div>
+    <h2>NAQASH TECH <span style="color:var(--green)">Launchpad</span></h2>
+    <p>Quick access to popular web tools and security utilities.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px">
+    <div style="border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:22px">
+      <h3>🔒 VIP Security & Phishing Checker</h3>
+      <p style="color:var(--muted);font-size:13px;margin:8px 0 14px">Scan suspicious URLs and verify safe server headers instantly.</p>
+      <button class="btn" onclick="alert('System Secure: No threats detected on current host.')">RUN SECURITY SCAN</button>
+    </div>
+    <div style="border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:22px">
+      <h3>🔑 Cyber Password Generator</h3>
+      <p style="color:var(--muted);font-size:13px;margin:8px 0 14px">Generate uncrackable 32-character cyberpunk cryptographic passwords.</p>
+      <button class="btn" onclick="prompt('Generated Secure Key:', 'NT-CYBER-' + Math.random().toString(36).substring(2,10).toUpperCase() + '-2026')">GENERATE KEY</button>
+    </div>
+  </div>
+</section>
+
+<!-- Official Community Hub -->
+<section class="section wrap" id="community">
+  <div class="section-head">
+    <div class="eyebrow">STAY CONNECTED</div>
+    <h2>Official <span style="color:var(--green)">Community Hub</span></h2>
+    <p>Join our channels and groups for direct updates and tools.</p>
+  </div>
+  <div class="social-grid">
+    <a class="social-card" href="https://chat.whatsapp.com/JossFXFcowID4Jl1SfPrvO" target="_blank" rel="noopener">
+      <h4>WhatsApp Group</h4>
+      <span>Join VIP Chat</span>
+    </a>
+    <a class="social-card" href="https://t.me/naqashtech804" target="_blank" rel="noopener">
+      <h4>Telegram Channel</h4>
+      <span>@naqashtech804</span>
+    </a>
+    <a class="social-card" href="https://www.tiktok.com/@itskashieditz333" target="_blank" rel="noopener">
+      <h4>TikTok Official</h4>
+      <span>@itskashieditz333</span>
+    </a>
+    <a class="social-card" href="https://wa.me/923141967385" target="_blank" rel="noopener">
+      <h4>Direct Owner</h4>
+      <span>Chat with Naqash</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer style="border-top:1px solid var(--line);margin-top:50px;padding:25px 0;color:var(--muted);font-size:11px;text-align:center">
+  <div class="wrap">© <span id="year"></span> <strong>NAQASH TECH</strong> • OFFICIAL TEAM PORTFOLIO</div>
+</footer>
+
+<!-- Profile Modal -->
+<div id="memberModal" style="position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:#050307dc;backdrop-filter:blur(10px)">
+  <div style="width:min(580px,100%);max-height:90vh;overflow:auto;position:relative;border:1px solid var(--green);border-radius:20px;padding:26px;background:var(--panel);box-shadow:0 0 50px var(--line)">
+    <button onclick="closeModal()" style="position:absolute;right:14px;top:14px;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--white);font-size:22px;cursor:pointer">×</button>
+    <img id="mAvatar" style="width:130px;height:130px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 16px;border:3px solid var(--green);padding:3px" alt="">
+    <div id="mRole" style="text-align:center;color:var(--green);font-weight:900;letter-spacing:2px;font-size:11px;font-family:'Orbitron',sans-serif"></div>
+    <h2 id="mName" style="text-align:center;font-family:'Orbitron',sans-serif;margin:6px 0;font-size:24px"></h2>
+    <p id="mBio" style="color:var(--muted);line-height:1.7;text-align:center;font-size:14px;margin:14px auto"></p>
+    <div style="text-align:center;margin-top:20px">
+      <a id="mWhatsapp" class="btn" target="_blank" rel="noopener">CONNECT ON WHATSAPP ↗</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Theme Switcher
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Live HUD Clock & Ping
+setInterval(() => {
+  const d = new Date();
+  document.getElementById('hudTime').textContent = d.toTimeString().split(' ')[0];
+}, 1000);
+
+// Terminal Logic
+const profilesData = [
+  {name: 'NAQASH TECH', role: 'FOUNDER & WEB DEVELOPER', bio: 'Owner of NAQASH TECH. Builds modern responsive web apps, cybersecurity utilities, and custom digital tools.', phone: '923141967385', img: 'https://i.ibb.co/YnZqXjB/file-00000000bbf08211bb337eff0f74d187.png'},
+  {name: 'SYED JARAR SHAH', role: 'CHIEF EXECUTIVE OFFICER', bio: 'CEO of the team, managing project strategy, team coordination, and VIP digital assets & gaming stores.', phone: '923470710824', img: 'https://i.ibb.co/LhX1FT0T/1794555622093.jpg'},
+  {name: 'POOKIE HACKER', role: 'WORK MANAGER (RETIRED)', bio: 'Former work manager, recognized for tool research, banner designing, and creative support.', phone: '923439900472', img: 'https://i.ibb.co/xSyDdSBr/1794555646367.jpg'}
+];
+
+function runCmd(cmd) {
+  const t = document.getElementById('ntTyped');
+  if(cmd === 'help') t.textContent = 'AVAILABLE COMMANDS:\n> team   : View team leadership info\n> store  : Jump to Jarar Shah VIP store\n> clear  : Clean terminal output';
+  else if(cmd === 'team') t.textContent = 'TEAM MEMBERS:\n1. Naqash Ali (Owner / Dev)\n2. Syed Jarar Shah (CEO)\n3. Pookie Hacker (Manager - Retired)';
+  else if(cmd === 'store') { t.textContent = 'Redirecting to VIP Store...'; location.href = '#store'; }
+  else if(cmd === 'clear') t.textContent = 'Terminal cleared. Type commands above.';
+}
+runCmd('help');
+
+// Modal Logic
+function openProfile(i) {
+  const m = profilesData[i];
+  document.getElementById('mAvatar').src = m.img;
+  document.getElementById('mRole').textContent = m.role;
+  document.getElementById('mName').textContent = m.name;
+  document.getElementById('mBio').textContent = m.bio;
+  document.getElementById('mWhatsapp').href = 'https://wa.me/' + m.phone;
+  document.getElementById('memberModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('memberModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+</script>
+</body>
+</html>
